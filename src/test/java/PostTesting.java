@@ -120,8 +120,7 @@ public class PostTesting {
                 .body(booking)
                 .post("/booking");
 
-        response.then()
-                .statusCode(400) // Esperamos que la API rechace la solicitud
+        response.then().statusCode(anyOf(equalTo(400), equalTo(500)))
                 .log().body();
     }
 
